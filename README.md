@@ -50,11 +50,12 @@ After installation, your `.trae/skills/` directory should contain:
 ```
 .trae/skills/
 └── nasa-earthdata-downloader/
-    ├── __init__.py         # Python package initialization
-    ├── downloader.py       # Core download functionality
-    ├── skill.py            # Main skill entry point
-    ├── SKILL.md            # Detailed skill documentation
-    └── README.md           # This file
+    ├── scripts/              # Python scripts directory
+    │   ├── __init__.py       # Python package initialization
+    │   ├── downloader.py     # Core download functionality
+    │   └── skill.py          # Main skill entry point
+    ├── SKILL.md              # Detailed skill documentation
+    └── README.md             # This file
 ```
 
 ## Configuration
