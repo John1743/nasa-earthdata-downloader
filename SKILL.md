@@ -1,11 +1,11 @@
 ---
 name: nasa-earthdata-downloader
-description: 在你给earthdata下载链接后触发
+description: Triggered when you provide earthdata download links
 ---
 
 ---
 name: nasa-earthdata-downloader
-description: "在用户需要下载earthdata的科学数据时，比如用户给你类似这些链接用来下载的时候 https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13A1.061/MOD13A1.A2015225.h29v09.061.2021331155049/MOD13A1.A2015225.h29v09.061.2021331155049.hdf
+description: "Triggered when users need to download earthdata scientific data, such as when users provide links like https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13A1.061/MOD13A1.A2015225.h29v09.061.2021331155049/MOD13A1.A2015225.h29v09.061.2021331155049.hdf
 ---
 
 # nasa-earthdata-downloader
@@ -71,23 +71,23 @@ print('Result:', result)
 
 ```
 =====================================
-     NASA Earth Data 下载技能
+     NASA Earth Data Download Skill
 =====================================
-处理字典格式输入...
-save_dir: D:\ndvi\hdf
-找到 1 个下载URL
+Processing dictionary input...
+Save directory: D:\ndvi\hdf
+Found 1 download URL
 - https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf
-准备下载 1 个文件到目录: D:\ndvi\hdf
-文件已存在，跳过: MOD13Q1.A2024161.h29v09.061.2024181211247.hdf
+Preparing to download 1 file to directory: D:\ndvi\hdf
+File already exists, skipping: MOD13Q1.A2024161.h29v09.061.2024181211247.hdf
 
-下载完成！
-成功: 1, 失败: 0, 跳过: 0
-文件保存在: D:\ndvi\hdf
+Download completed!
+Success: 1, Failed: 0, Skipped: 0
+Files saved to: D:\ndvi\hdf
 
-结果: success
-消息: 下载完成！成功: 1, 失败: 0, 跳过: 0
+Result: success
+Message: Download completed! Success: 1, Failed: 0, Skipped: 0
 =====================================
-Result: {'status': 'success', 'message': '下载完成！成功: 1, 失败: 0, 跳过: 0', 'results': {'success': 1, 'failed': 0, 'skipped': 0}, 'save_dir': 'D:\ndvi\hdf'}
+Result: {'status': 'success', 'message': 'Download completed! Success: 1, Failed: 0, Skipped: 0', 'results': {'success': 1, 'failed': 0, 'skipped': 0}, 'save_dir': 'D:\ndvi\hdf'}
 ```
 
 ### Example 3: Download Multiple Years of Data
@@ -113,23 +113,23 @@ print('Result:', result)
 
 ```
 =====================================
-     NASA Earth Data 下载技能
+     NASA Earth Data Download Skill
 =====================================
-处理字典格式输入...
-save_dir: D:\ndvi\hdf
-找到 1 个下载URL
+Processing dictionary input...
+Save directory: D:\ndvi\hdf
+Found 1 download URL
 - https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2023161.h29v09.061.2023177233537/MOD13Q1.A2023161.h29v09.061.2023177233537.hdf
-准备下载 1 个文件到目录: D:\ndvi\hdf
+Preparing to download 1 file to directory: D:\ndvi\hdf
 MOD13Q1.A2023161.h29...: 100%|█████████████| 92.7M/92.7M [00:05<00:00, 15.6MB/s]
 
-下载完成！
-成功: 1, 失败: 0, 跳过: 0
-文件保存在: D:\ndvi\hdf
+Download completed!
+Success: 1, Failed: 0, Skipped: 0
+Files saved to: D:\ndvi\hdf
 
-结果: success
-消息: 下载完成！成功: 1, 失败: 0, 跳过: 0
+Result: success
+Message: Download completed! Success: 1, Failed: 0, Skipped: 0
 =====================================
-Result: {'status': 'success', 'message': '下载完成！成功: 1, 失败: 0, 跳过: 0', 'results': {'success': 1, 'failed': 0, 'skipped': 0}, 'save_dir': 'D:\ndvi\hdf'}
+Result: {'status': 'success', 'message': 'Download completed! Success: 1, Failed: 0, Skipped: 0', 'results': {'success': 1, 'failed': 0, 'skipped': 0}, 'save_dir': 'D:\ndvi\hdf'}
 ```
 
 ## Features
@@ -229,37 +229,37 @@ For detailed analysis and troubleshooting steps, refer to:
 
 1. **Check Python executable existence**:
    ```powershell
-dir D:\software\anaconda\envs\geo_env\python.exe
-```
+   dir D:\software\anaconda\envs\geo_env\python.exe
+   ```
 
 2. **Verify Python version**:
    ```powershell
-D:\software\anaconda\envs\geo_env\python.exe --version
-```
+   D:\software\anaconda\envs\geo_env\python.exe --version
+   ```
 
 3. **Test skill execution**:
    ```powershell
-D:\software\anaconda\envs\geo_env\python.exe -c "import sys; import os; skill_path = os.path.join('.trae', 'skills', 'nasa-earthdata-downloader'); sys.path.insert(0, skill_path); from skill import run_skill; result = run_skill({'save_dir': r'D:\ndvi\hdf', 'urls': 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf'}); print('Result:', result)"
-```
+   D:\software\anaconda\envs\geo_env\python.exe -c "import sys; import os; skill_path = os.path.join('.trae', 'skills', 'nasa-earthdata-downloader'); sys.path.insert(0, skill_path); from skill import run_skill; result = run_skill({'save_dir': r'D:\ndvi\hdf', 'urls': 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf'}); print('Result:', result)"
+   ```
 
 ### Expected Output
 
 ```
 =====================================
-     NASA Earth Data 下载技能
+     NASA Earth Data Download Skill
 =====================================
-处理字典格式输入...
-save_dir: D:\ndvi\hdf
-找到 1 个下载URL
+Processing dictionary input...
+Save directory: D:\ndvi\hdf
+Found 1 download URL
 - https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf
-准备下载 1 个文件到目录: D:\ndvi\hdf
+Preparing to download 1 file to directory: D:\ndvi\hdf
 MOD13Q1.A2024161.h29...: 100%|██████████| 94.2M/94.2M [00:26<00:00, 3.55MB/s]
 
-下载完成！
-成功: 1, 失败: 0, 跳过: 0
-文件保存在: D:\ndvi\hdf
+Download completed!
+Success: 1, Failed: 0, Skipped: 0
+Files saved to: D:\ndvi\hdf
 
-结果: success
-消息: 下载完成！成功: 1, 失败: 0, 跳过: 0
+Result: success
+Message: Download completed! Success: 1, Failed: 0, Skipped: 0
 =====================================
 ```
