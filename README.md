@@ -2,6 +2,16 @@
 
 An AI agent skill for downloading data from NASA Earth Data, specifically designed for MODIS and other NASA Earth science datasets. This project was developed and tested within the TRAE IDE (trae.cn).
 
+## Why This Skill 
+
+When working with science data, I often need to download **long time-series datasets** spanning multiple years or decades. These datasets can be extremely large, with individual files ranging from tens to hundreds of megabytes, and complete time-series requiring dozens or even hundreds of files.
+
+This skill addresses these challenges by providing:
+- **Multi-threaded downloads** to significantly increase download speed
+- **Real-time progress bars** to monitor download status of each file
+- **Resumable downloads** to handle interruptions gracefully
+- **Seamless NASA Earth Data authentication** using .netrc credentials
+
 ## Features
 
 • Multi-threaded downloads: Increases download speed by using multiple concurrent threads (default: 5 threads)
