@@ -131,7 +131,7 @@ def parse_urls(input_str):
 
 if __name__ == "__main__":
     # Example usage
-    save_dir = r"D:\Study\毕业论文\data\ndvi"
+    save_dir = r"D:\data\ndvi"
     
     # Example download links
     raw_links = """
@@ -141,3 +141,4 @@ if __name__ == "__main__":
     
     download_urls = parse_urls(raw_links)
     download_files(download_urls, save_dir, max_threads=5)
+
