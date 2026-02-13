@@ -18,7 +18,6 @@ When working with science data, I often need to download **long time-series data
 
 • Progress bars: Shows real-time download progress for each file
 
-• Error handling: Gracefully handles download errors with detailed logging
 
 • Batch download support: Download multiple files in a single command
 
@@ -102,23 +101,6 @@ pip install requests tqdm
 
 ### Basic Usage in TRAE Terminal
 
-Execute skill with single file download:
-
-```powershell
-D:\software\anaconda\envs\geo_env\python.exe -c "
-import sys
-import os
-skill_path = os.path.join('.trae', 'skills', 'nasa-earthdata-downloader')
-sys.path.insert(0, skill_path)
-from skill import run_skill
-result = run_skill({
-    'save_dir': r'D:\ndvi\hdf',
-    'urls': 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf'
-})
-print('Result:', result)
-"
-```
-
 Execute skill with multiple files:
 
 ```powershell
@@ -137,20 +119,6 @@ result = run_skill({
 })
 print('Result:', result)
 "
-```
-
-### Python API Usage
-
-```python
-from skill import run_skill
-
-# Download single file
-result = run_skill({
-    'save_dir': r'D:\Study\thesis\data\ndvi',
-    'urls': 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf'
-})
-
-print('Download result:', result)
 ```
 
 ### Parameters
@@ -188,140 +156,7 @@ Message: Download completed! Success: 1, Failed: 0, Skipped: 0
 
 ## Supported Data
 
-This skill supports downloading from NASA Earth Data Cloud, including:
-
-• MODIS products: MOD13A1, MOD13Q1, MYD13A1, MYD13Q1, etc.
-
-• Other NASA Earth Data Cloud products: Any file accessible through NASA Earth Data authentication
-
-• Vegetation indices: NDVI, EVI, and related vegetation products
-
-• Time series data: Multiple years of data for temporal analysis
+This skill supports downloading from NASA Earth Data Cloud.
 
 
-## TRAE Terminal Issues
 
-If you encounter Python execution issues in TRAE terminal, see the detailed troubleshooting guide in `SKILL.md` or refer to `Trae_Terminal_Python_Issue_Analysis.md`.
-
-Quick fix: Use full Python path:
-```powershell
-D:\software\anaconda\envs\geo_env\python.exe -c "[Python code]"
-```
-
-## Troubleshooting
-
-### Authentication Errors
-
-Problem: `Missing NASA Earthdata login credentials, please configure in .netrc file`
-
-Solution:
-1. Verify your .netrc file exists and contains correct credentials
-2. Check that the machine name is exactly `urs.earthdata.nasa.gov`
-3. Ensure your NASA Earth Data account is active
-
-### Download Failures
-
-Problem: `Download failed [URL]: Connection timeout`
-
-Solution:
-1. Check your internet connection
-2. Verify the URL is correct and accessible
-3. Ensure you have sufficient disk space
-4. Try downloading again (resumable download will continue from where it left off)
-
-### File Not Found Errors
-
-Problem: `404 Client Error: Not Found`
-
-Solution:
-1. Verify the URL is correct
-2. Check if the file is still available on NASA Earth Data
-3. Ensure your NASA Earth Data account has access to the requested data
-
-### Module Import Errors
-
-Problem: `ImportError: attempted relative import with no known parent package`
-
-Solution:
-1. Ensure you're using the correct Python environment (geo_env)
-2. Verify the skill files are in the correct directory structure
-3. Use the full Python path when executing in TRAE terminal
-
-## Advanced Usage
-
-### Custom Thread Count
-
-```python
-result = run_skill({
-    'save_dir': r'D:\ndvi\hdf',
-    'urls': 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf',
-    'max_threads': 10  # Increase to 10 concurrent downloads
-})
-```
-
-### Custom Chunk Size
-
-```python
-result = run_skill({
-    'save_dir': r'D:\ndvi\hdf',
-    'urls': 'https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2024161.h29v09.061.2024181211247/MOD13Q1.A2024161.h29v09.061.2024181211247.hdf',
-    'chunk_size': 2 * 1024 * 1024  # 2MB chunks
-})
-```
-
-## Documentation
-
-For detailed documentation, see:
-• SKILL.md: Complete skill documentation with examples
-
-• TRAE_Terminal_Python_Issue_Analysis.md: Troubleshooting guide for TRAE terminal issues
-
-
-## Contributing
-
-Contributions are welcome! If you find bugs or want to add features:
-
-1. Fork this repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-MIT License - feel free to use this skill for personal and commercial projects.
-
-## Acknowledgments
-
-• NASA Earth Data for providing access to MODIS and other datasets
-
-• LP DAAC for hosting MODIS data products
-
-• The TRAE IDE team for providing the skill framework
-
-
-## Version History
-
-• v1.0.0 (2026-02-11): Initial release
-
-  • Basic download functionality
-
-  • Multi-threading support
-
-  • Resumable downloads
-
-  • NASA Earth Data authentication
-
-  • TRAE terminal compatibility
-
-
-## Contact
-
-For issues, questions, or suggestions, please:
-• Open an issue on GitHub
-
-• Check existing documentation in SKILL.md
-
-
----
-
-Note: This skill is designed for use with TRAE IDE and requires proper configuration of NASA Earth Data credentials. Always ensure you have permission to download the requested data from NASA Earth Data.
