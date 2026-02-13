@@ -1,6 +1,6 @@
 ---
 name: nasa-earthdata-downloader
-description:'Triggered when users need to download earthdata scientific data, such as when users provide links like https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13A1.061/MOD13A1.A2015225.h29v09.061.2021331155049/MOD13A1.A2015225.h29v09.061.2021331155049.hdf'
+description: "Triggered when users need to download earthdata scientific data, such as when users provide links like https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13A1.061/MOD13A1.A2015225.h29v09.061.2021331155049/MOD13A1.A2015225.h29v09.061.2021331155049.hdf"
 ---
 
 
@@ -155,6 +155,7 @@ For detailed analysis and troubleshooting steps when executing this skill in Tra
 .trae\skills\nasa-earthdata-downloader\scripts\downloader.py
 - `scripts/downloader.py` - downloader script
 - `scripts/skill.py` - skill script
+
 
 
 
